@@ -19,13 +19,17 @@ public class BallThrower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 前方向に力を加える
-        // transform.forward このオブジェクトの前方向
-        // throwPower 投げる力
-        // ForceMode.Impulse 瞬間的に力を加える
-        rb.AddForce(
-            transform.forward * throwPower,
-            ForceMode.Impulse
-        );
+        // スペースキーが押されたら
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            // 前方向に力を加える
+            // transform.forward このオブジェクトの前方向
+            // throwPower 投げる力
+            // ForceMode.Impulse 瞬間的に力を加える
+            rb.AddForce(
+                transform.forward * throwPower,
+                ForceMode.Impulse
+            );
+        }
     }
 }
