@@ -46,6 +46,9 @@ public class BallThrower : MonoBehaviour
                 transform.forward * throwPower,
                 ForceMode.Impulse
             );
+
+            // 3秒後に削除
+            Destroy(ball, 3f);
         }
     }
 }
