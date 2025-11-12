@@ -9,6 +9,9 @@ public class BallThrower : MonoBehaviour
     // Prefabを格納する変数
     public GameObject ballPrefab;
 
+    // 上の力
+    public float upwardPower = 8f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +47,11 @@ public class BallThrower : MonoBehaviour
             // ForceMode.Impulse 瞬間的に力を加える
             rb.AddForce(
                 transform.forward * throwPower,
+                ForceMode.Impulse
+            );
+            // 上方向に力を加える
+            rb.AddForce(
+                Vector3.up * upwardPower,
                 ForceMode.Impulse
             );
 
