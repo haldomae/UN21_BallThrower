@@ -9,11 +9,14 @@ public class BallThrower : MonoBehaviour
     // Rigidbodyのコンポーネントを格納する変数
     private Rigidbody rb;
 
+    // 投げる対象のSphere(Ball)を格納する変数
+    public GameObject targetBall;
+
     // Start is called before the first frame update
     void Start()
     {
         // コンポーネントを取得
-        rb = GetComponent<Rigidbody>();
+        rb = targetBall.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
