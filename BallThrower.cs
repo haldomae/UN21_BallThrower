@@ -35,11 +35,14 @@ public class BallThrower : MonoBehaviour
                 Quaternion.identity
             );
 
+            // 複製されたボールのRigidbodyコンポーネントを取得
+            Rigidbody rb = ball.GetComponent<Rigidbody>();
+
             // 前方向に力を加える
             // transform.forward このオブジェクトの前方向
             // throwPower 投げる力
             // ForceMode.Impulse 瞬間的に力を加える
-            .AddForce(
+            rb.AddForce(
                 transform.forward * throwPower,
                 ForceMode.Impulse
             );
