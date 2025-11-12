@@ -5,9 +5,9 @@ using UnityEngine;
 public class BallThrower : MonoBehaviour
 {
     // 投げる力
-    float throwPower = 10f;
+    public float throwPower = 10f;
     // Rigidbodyのコンポーネントを格納する変数
-    Rigidbody rb;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
