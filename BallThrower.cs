@@ -22,8 +22,19 @@ public class BallThrower : MonoBehaviour
     void Update()
     {
         // スペースキーが押されたら
-        if(Input.GetKeyDown(KeyCode.Space))
+        // if(Input.GetKeyDown(KeyCode.Space))
+        // 0 左クリック
+        // 1 右クリック
+        // 2 中クリック
+        if(Input.GetMouseButton(0))
         {
+            // マウス位置への方向を取得
+            Ray ray = Camera.main.ScreenPointToRay(
+                Input.mousePosition
+            );
+            Vector3 clickDirection = ray.direction;
+
+
             // ボールの位置を決める(3D座標)
             // GameManagerの位置
             Vector3 ballPosition = transform.position;
@@ -45,15 +56,16 @@ public class BallThrower : MonoBehaviour
             // transform.forward このオブジェクトの前方向
             // throwPower 投げる力
             // ForceMode.Impulse 瞬間的に力を加える
-            rb.AddForce(
-                transform.forward * throwPower,
-                ForceMode.Impulse
-            );
-            // 上方向に力を加える
-            rb.AddForce(
-                Vector3.up * upwardPower,
-                ForceMode.Impulse
-            );
+            // rb.AddForce(
+            //     transform.forward * throwPower,
+            //     ForceMode.Impulse
+            // );
+            // // 上方向に力を加える
+            // rb.AddForce(
+            //     Vector3.up * upwardPower,
+            //     ForceMode.Impulse
+            // );
+            rb.velocity = clickDirection * throwPower;
 
             // 3秒後に削除
             Destroy(ball, 3f);
